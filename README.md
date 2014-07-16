@@ -7,7 +7,6 @@ Latest release requires AngularJS v1.2.6 or higher and angular-animate for the C
 
 This module is based on **AngularJS-Toaster** by Jirikavi.
 
-BOWER:
 ```HTML
 bower install angular-toasty
 ```
