@@ -11,7 +11,7 @@ This module is based on **AngularJS-Toaster** by Jirikavi.
 bower install angular-toasty
 ```
 
-#### Current Version 0.1.1
+#### Current Version 0.1.2
 ![alt tag](http://i.imgur.com/GniL4GK.png)
 
 #### Current Features
