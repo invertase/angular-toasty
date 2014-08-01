@@ -96,7 +96,7 @@ angular.module('toasty', ['ngAnimate'])
                         //
                         toasty.type = mergedConfig['icon-classes'][toasty.type];
                         toasty.config = angular.extend({}, mergedConfig, toasty);
-                        console.log(toasty);
+
                         if (!toasty.type)
                             toasty.type = mergedConfig['icon-class'];
 
@@ -226,15 +226,16 @@ angular.module('toasty', ['ngAnimate'])
                         };
                     }
                 ],
-                template: '<div  id="toasty-container" ng-class="config.position">' +
-                    '<audio id="toasty-sound" src="../audio/toasty.wav" preload="auto"></audio>' +
-                    '<div ng-repeat="toasty in toasties" class="toasty" ng-click="tapRemove(toasty)" ng-class="toasty.type"  ng-mouseover="stopTimer(toasty)"  ng-mouseout="restartTimer(toasty)">' +
-                    '<button ng-click="closeClick(toasty)" class="toasty-close-button" ng-show="toasty.config.showClose">&times;</button>' +
-                    '<div ng-click="onClick(toasty)" ng-class="toasty.config.classes.title">{{toasty.title}}</div>' +
-                    '<div ng-click="onClick(toasty)" ng-class="toasty.config.classes.msg" >' +
-                    '<div ng-click="onClick(toasty)" >{{toasty.msg}}</div>' +
-                    '</div>' +
-                    '</div>' +
+                template: 
+                    '<div id="toasty-container" ng-class="config.position">' + 
+                        '<audio id="toasty-sound" src="../audio/toasty.wav" preload="auto"></audio>' +
+                        '<div ng-repeat="toasty in toasties" class="toasty" ng-click="tapRemove(toasty)" ng-class="toasty.type" ng-mouseover="stopTimer(toasty)" ng-mouseout="restartTimer(toasty)">' +
+                            '<button ng-click="closeClick(toasty)" class="toasty-close-button" ng-if="toasty.config.showClose">&times;</button>' +
+                            '<div ng-click="onClick(toasty)" class="toasty-text">' +
+                                '<span ng-class="toasty.config.classes.title" ng-bind="toasty.title"></span><br />' +
+                                '<span ng-class="toasty.config.classes.msg" ng-bind="toasty.msg"></span>' +
+                            '</div>' +
+                        '</div>' +
                     '</div>'
             };
         }
