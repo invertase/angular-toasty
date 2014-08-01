@@ -43,9 +43,9 @@ angular.module('main', ['ngAnimate', 'toasty'])
                     var doSuccess = function() {
                         toasty.title = 'Success';
                         toasty.msg = 'Finished loading users.';
-                        toasty.type = 'success';
+                        toasty.setType('success');
                     }
-                    
+
                     $timeout(doSuccess, 10000);
                 },
             });

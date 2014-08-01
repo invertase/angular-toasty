@@ -174,6 +174,18 @@ angular.module('toasty', ['ngAnimate'])
                             $scope.toasties.splice(i, 1);
                         };
 
+                        $scope.setType = function(id, type) {
+                            var i = 0;
+                            for (i; i < $scope.toasties.length; i++) {
+                                if ($scope.toasties[i].id === id) {
+                                    console.log($scope.toasties[i]);
+                                    console.log('toasty-' + type);
+                                    $scope.toasties[i].type = 'toasty-' + type;
+                                }
+                            }
+
+                        };
+
                         // remove all 
                         $scope.removeAll = function() {
                             var i = 0;
@@ -201,6 +213,11 @@ angular.module('toasty', ['ngAnimate'])
                                 toasty.removeAll = function() {
                                     $scope.removeAll();
                                 }
+                                toasty.setType = function(type) {
+
+                                    console.log("Called set type with: " + type);
+                                    $scope.setType(toastyId, type);
+                                }
                                 // run click handler
                                 $scope.$parent.$eval(toasty.onAdd(toasty));
                             }
@@ -220,22 +237,25 @@ angular.module('toasty', ['ngAnimate'])
                                 toasty.removeAll = function() {
                                     $scope.removeAll();
                                 }
+                                toasty.setType = function(type) {
+                                    console.log("Called set type with: " + type);
+                                    $scope.setType(toastyId, type);
+                                }
                                 // run click handler
                                 $scope.$parent.$eval(toasty.onClick(toasty));
                             }
                         };
                     }
                 ],
-                template: 
-                    '<div id="toasty-container" ng-class="config.position">' + 
-                        '<audio id="toasty-sound" src="../audio/toasty.wav" preload="auto"></audio>' +
-                        '<div ng-repeat="toasty in toasties" class="toasty" ng-click="tapRemove(toasty)" ng-class="toasty.type" ng-mouseover="stopTimer(toasty)" ng-mouseout="restartTimer(toasty)">' +
-                            '<button ng-click="closeClick(toasty)" class="toasty-close-button" ng-if="toasty.config.showClose">&times;</button>' +
-                            '<div ng-click="onClick(toasty)" class="toasty-text">' +
-                                '<span ng-class="toasty.config.classes.title" ng-bind="toasty.title"></span><br />' +
-                                '<span ng-class="toasty.config.classes.msg" ng-bind="toasty.msg"></span>' +
-                            '</div>' +
-                        '</div>' +
+                template: '<div id="toasty-container" ng-class="config.position">' +
+                    '<audio id="toasty-sound" src="../audio/toasty.wav" preload="auto"></audio>' +
+                    '<div ng-repeat="toasty in toasties" class="toasty" ng-click="tapRemove(toasty)" ng-class="toasty.type" ng-mouseover="stopTimer(toasty)" ng-mouseout="restartTimer(toasty)">' +
+                    '<button ng-click="closeClick(toasty)" class="toasty-close-button" ng-if="toasty.config.showClose">&times;</button>' +
+                    '<div ng-click="onClick(toasty)" class="toasty-text">' +
+                    '<span ng-class="toasty.config.classes.title" ng-bind="toasty.title"></span><br />' +
+                    '<span ng-class="toasty.config.classes.msg" ng-bind="toasty.msg"></span>' +
+                    '</div>' +
+                    '</div>' +
                     '</div>'
             };
         }
