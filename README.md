@@ -5,6 +5,8 @@ Angular Toasty
 
 Latest release requires AngularJS v1.2.6 or higher and angular-animate for the CSS3 transformations. 
 
+Demo: http://salakar.github.io/angular-toasty/toasty-sample/
+
 This module is based on **AngularJS-Toaster** by Jirikavi.
 
 ```HTML
