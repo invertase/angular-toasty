@@ -39,15 +39,16 @@ angular.module('main', ['ngAnimate', 'toasty'])
 
         $scope.pop = function() {
             toasty.pop.success({
-                title: "Success",
-                msg: 'User ABC@def.com added!',
-                timeout: 10000,
+                title: "Success!",
+                msg: 'Click to change me.',
+                timeout: 0,
                 showClose: false,
-                myData: 'Testing 1 2 3', // you can add any objects as extras 
+                myData: 'Testing 1 2 3', // Strings, integers, objects etc.
                 onClick: function(toasty) {
-                    console.log(toasty.myData);
-                    toasty.msg = 'I updated myself';
-                    toasty.title = 'A new title!';
+                    toasty.title = 'Well done!';
+                    toasty.msg = 'Closing in 5 seconds.';
+                    toasty.timeout = 5000;
+                    //console.log(toasty.myData);
                     //toasty.remove();
                     //toasty.removeAll();
                 },
@@ -60,44 +61,51 @@ angular.module('main', ['ngAnimate', 'toasty'])
             });
 
             toasty.pop.warning({
-                title: 'Warning',
-                msg: 'No users found.',
-                clickToClose: true
+                title: 'Warning!',
+                msg: 'Click to close me.',
+                showClose: false,
+                clickToClose: true,
+                timeout: 0,
             });
 
             toasty.pop.wait({
                 title: 'Please Wait',
-                msg: 'Loading users...',
+                msg: 'I\'ll change after 5 seconds.',
                 timeout: 0,
                 clickToClose: false,
                 showClose: false,
                 onAdd: function(toasty) {
-                    console.log(toasty.id + ' has been added!');
 
-                    // after 5 secs changes to success
                     var doSuccess = function() {
                         toasty.title = 'Success';
-                        toasty.msg = 'Finished loading users.';
-                        //toasty.type = 'toasty-success';
+                        toasty.msg = 'Loading finished!';
+                        toasty.setType('success');
+                        toasty.showClose = true;
                     }
+
                     $timeout(doSuccess, 5000);
                 },
             });
 
             toasty.pop.error({
-                title: 'Error',
-                msg: 'Failed to delete user.',
-                clickToClose: true
+                title: 'Error!',
+                msg: 'Click the remove icon to get rid of me.',
+                timeout: 0,
+                showClose: true,
+                clickToClose: false,
             });
 
             toasty.pop.info({
                 title: 'Info',
-                msg: 'Welcome...',
-                clickToClose: true
+                msg: 'I\'ll just stay here forever.',
+                timeout: 0,
+                showClose: false,
+                clickToClose: false,
             });
 
         };
 
+        // Remove all toasties
         $scope.clear = function() {
             toasty.clear()
         };
