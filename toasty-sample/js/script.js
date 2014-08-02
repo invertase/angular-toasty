@@ -34,7 +34,7 @@ angular.module('main', ['ngAnimate', 'toasty'])
 
             toasty.pop.wait({
                 title: 'Please Wait',
-                msg: 'I\'ll change after 10 seconds.',
+                msg: 'I\'ll change after 5 seconds.',
                 timeout: 0,
                 clickToClose: false,
                 showClose: false,
@@ -44,9 +44,10 @@ angular.module('main', ['ngAnimate', 'toasty'])
                         toasty.title = 'Success';
                         toasty.msg = 'Finished loading users.';
                         toasty.setType('success');
+                        toasty.showClose = true;
                     }
 
-                    $timeout(doSuccess, 10000);
+                    $timeout(doSuccess, 5000);
                 },
             });
 
