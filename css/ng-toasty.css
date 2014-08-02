@@ -93,12 +93,11 @@ button.toasty-close-button:focus {
 }
 
 .toasty-text {
-  padding: 5px 5px 5px 65px;
+  padding: 5px 20px 5px 60px;
   color: #ffffff;
   display: table-cell; 
   vertical-align: middle; 
 }
-
 .toasty-title {
   font-size: 15px;
 }
