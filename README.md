@@ -3,7 +3,7 @@ Angular Toasty
 
 **Angular Toasty** is a angularjs module that provides growl-style alerts and messages for your angular app with extensive features.
 
-Latest release requires AngularJS v1.2.6 or higher and angular-animate for the CSS3 transformations. 
+Latest release requires AngularJS v1.2.20 or higher and angular-animate for the CSS3 transformations. 
 
 Demo: http://salakar.github.io/angular-toasty/toasty-sample/
 
