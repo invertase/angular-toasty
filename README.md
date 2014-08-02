@@ -13,8 +13,8 @@ This module is based on **AngularJS-Toaster** by Jirikavi.
 bower install angular-toasty
 ```
 
-#### Current Version 0.1.2
-![alt tag](http://i.imgur.com/GniL4GK.png)
+#### Current Version 0.1.3
+![alt tag](http://i.imgur.com/p12dgjE.png)
 
 #### Current Features
 * onClick, onAdd, onRemove event handlers.
