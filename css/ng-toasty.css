@@ -7,7 +7,7 @@
 #toasty-container {
   position: fixed;
   z-index: 999999;
-  font-family: Tahoma, Geneva, sans-serif;
+  font-family: Tahoma, Geneva, sans-serif !important;
   font-size: 12px;
 }
 
