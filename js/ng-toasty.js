@@ -79,14 +79,11 @@ angular.module('toasty', ['ngAnimate'])
                     var id = 0,
                         mergedConfig;
 
-                    console.log(scope.$eval(attrs.toastyDefaults));
-
                     mergedConfig = angular.extend({}, toastyConfig, scope.$eval(attrs.toastyDefaults));
 
                     scope.config = {
                         position: mergedConfig['position']
                     };
-
 
                     scope.configureTimer = function configureTimer(toasty) {
                         var timeout = typeof(toasty.timeout) == "number" ? toasty.timeout : mergedConfig['timeout'];
@@ -95,7 +92,6 @@ angular.module('toasty', ['ngAnimate'])
                     };
 
                     function addToasty(toasty) {
-                        //
                         toasty.type = mergedConfig['icon-classes'][toasty.type];
                         toasty.config = angular.extend({}, mergedConfig, toasty);
 
@@ -180,8 +176,6 @@ angular.module('toasty', ['ngAnimate'])
                             var i = 0;
                             for (i; i < $scope.toasties.length; i++) {
                                 if ($scope.toasties[i].id === id) {
-                                    console.log($scope.toasties[i]);
-                                    console.log('toasty-' + type);
                                     $scope.toasties[i].type = 'toasty-' + type;
                                 }
                             }
