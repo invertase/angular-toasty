@@ -50,6 +50,7 @@ angular.module('toasty', ['ngAnimate'])
         'clickToClose': false, // enable disable click to close.
         'pushTo': 'top', // postion where new toaties are pushed to, top or bottom.
         'timeout': 3000, // how long to show the toasty for in ms, set to 0 for indefinite.
+        'position': 'toasty-bottom-right',
         'icon-classes': {
             error: 'toasty-error',
             info: 'toasty-info',
@@ -61,7 +62,6 @@ angular.module('toasty', ['ngAnimate'])
         // 'body-template': 'toastyBodyTmpl.html',
         classes: {
             'icon': 'toasty-info',
-            'position': 'toasty-bottom-right',
             'title': 'toasty-title',
             'msg': 'toasty-message'
         }
@@ -82,9 +82,8 @@ angular.module('toasty', ['ngAnimate'])
                     mergedConfig = angular.extend({}, toastyConfig, scope.$eval(attrs.toastyDefaults));
 
                     scope.config = {
-                        position: mergedConfig['classes']['position']
+                        position: mergedConfig['position']
                     };
-
 
                     scope.configureTimer = function configureTimer(toasty) {
                         var timeout = typeof(toasty.timeout) == "number" ? toasty.timeout : mergedConfig['timeout'];
@@ -93,10 +92,9 @@ angular.module('toasty', ['ngAnimate'])
                     };
 
                     function addToasty(toasty) {
-                        //
                         toasty.type = mergedConfig['icon-classes'][toasty.type];
                         toasty.config = angular.extend({}, mergedConfig, toasty);
-                        console.log(toasty);
+
                         if (!toasty.type)
                             toasty.type = mergedConfig['icon-class'];
 
@@ -174,6 +172,16 @@ angular.module('toasty', ['ngAnimate'])
                             $scope.toasties.splice(i, 1);
                         };
 
+                        $scope.setType = function(id, type) {
+                            var i = 0;
+                            for (i; i < $scope.toasties.length; i++) {
+                                if ($scope.toasties[i].id === id) {
+                                    $scope.toasties[i].type = 'toasty-' + type;
+                                }
+                            }
+
+                        };
+
                         // remove all 
                         $scope.removeAll = function() {
                             var i = 0;
@@ -201,6 +209,10 @@ angular.module('toasty', ['ngAnimate'])
                                 toasty.removeAll = function() {
                                     $scope.removeAll();
                                 }
+                                toasty.setType = function(type) {
+
+                                    $scope.setType(toastyId, type);
+                                }
                                 // run click handler
                                 $scope.$parent.$eval(toasty.onAdd(toasty));
                             }
@@ -220,19 +232,22 @@ angular.module('toasty', ['ngAnimate'])
                                 toasty.removeAll = function() {
                                     $scope.removeAll();
                                 }
+                                toasty.setType = function(type) {
+                                    $scope.setType(toastyId, type);
+                                }
                                 // run click handler
                                 $scope.$parent.$eval(toasty.onClick(toasty));
                             }
                         };
                     }
                 ],
-                template: '<div  id="toasty-container" ng-class="config.position">' +
+                template: '<div id="toasty-container" ng-class="config.position">' +
                     '<audio id="toasty-sound" src="../audio/toasty.wav" preload="auto"></audio>' +
-                    '<div ng-repeat="toasty in toasties" class="toasty" ng-click="tapRemove(toasty)" ng-class="toasty.type"  ng-mouseover="stopTimer(toasty)"  ng-mouseout="restartTimer(toasty)">' +
-                    '<button ng-click="closeClick(toasty)" class="toasty-close-button" ng-show="toasty.config.showClose">&times;</button>' +
-                    '<div ng-click="onClick(toasty)" ng-class="toasty.config.classes.title">{{toasty.title}}</div>' +
-                    '<div ng-click="onClick(toasty)" ng-class="toasty.config.classes.msg" >' +
-                    '<div ng-click="onClick(toasty)" >{{toasty.msg}}</div>' +
+                    '<div ng-repeat="toasty in toasties" class="toasty" ng-click="tapRemove(toasty)" ng-class="toasty.type" ng-mouseover="stopTimer(toasty)" ng-mouseout="restartTimer(toasty)">' +
+                    '<button ng-click="closeClick(toasty)" class="toasty-close-button" ng-if="toasty.showClose">&times;</button>' +
+                    '<div ng-click="onClick(toasty)" class="toasty-text">' +
+                    '<span ng-class="toasty.config.classes.title" ng-bind="toasty.title"></span><br />' +
+                    '<span ng-class="toasty.config.classes.msg" ng-bind="toasty.msg"></span>' +
                     '</div>' +
                     '</div>' +
                     '</div>'
