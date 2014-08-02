@@ -1,6 +1,6 @@
 {
     "name": "angular-toasty",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "main": [
         "js/ng-toasty.js",
         "css/ng-toasty.css",
