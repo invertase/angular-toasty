@@ -211,7 +211,6 @@ angular.module('toasty', ['ngAnimate'])
                                 }
                                 toasty.setType = function(type) {
 
-                                    console.log("Called set type with: " + type);
                                     $scope.setType(toastyId, type);
                                 }
                                 // run click handler
@@ -234,7 +233,6 @@ angular.module('toasty', ['ngAnimate'])
                                     $scope.removeAll();
                                 }
                                 toasty.setType = function(type) {
-                                    console.log("Called set type with: " + type);
                                     $scope.setType(toastyId, type);
                                 }
                                 // run click handler

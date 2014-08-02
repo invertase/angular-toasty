@@ -42,7 +42,7 @@ angular.module('main', ['ngAnimate', 'toasty'])
 
                     var doSuccess = function() {
                         toasty.title = 'Success';
-                        toasty.msg = 'Finished loading users.';
+                        toasty.msg = 'Loading finished!';
                         toasty.setType('success');
                         toasty.showClose = true;
                     }
