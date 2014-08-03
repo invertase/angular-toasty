@@ -3,8 +3,7 @@
     "version": "0.1.4",
     "main": [
         "js/ng-toasty.js",
-        "css/ng-toasty.css",
-        "audio/toasty.wav"
+        "css/ng-toasty.css"
     ],
     "ignore": [
         "**/.*",
