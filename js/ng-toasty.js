@@ -2,8 +2,6 @@
 
 /*
  * AngularJS toasty
- * Version: 0.1.2
- 
  */
 
 angular.module('toasty', ['ngAnimate'])
