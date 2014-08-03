@@ -1,6 +1,14 @@
 angular.module('main', ['ngAnimate', 'toasty'])
     .controller('myController', function($scope, toasty, $timeout, $window) {
 
+        $scope.silent = function() {
+          toasty.pop.success({
+              title: "Silence!",
+              msg: 'I am just a silent toasty',
+              sound: false
+          });
+        };
+
         $scope.pop = function() {
             toasty.pop.success({
                 title: "Success!",
