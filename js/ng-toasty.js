@@ -49,6 +49,7 @@ angular.module('toasty', ['ngAnimate'])
         'pushTo': 'top', // postion where new toaties are pushed to, top or bottom.
         'timeout': 3000, // how long to show the toasty for in ms, set to 0 for indefinite.
         'position': 'toasty-bottom-right',
+        'sound': true, // enable sounds by default
         'icon-classes': {
             error: 'toasty-error',
             info: 'toasty-info',
@@ -137,7 +138,10 @@ angular.module('toasty', ['ngAnimate'])
 
                     scope.toasties = [];
                     scope.$on('toasty-newToasty', function() {
-                        document.getElementById('toasty-sound').play();
+
+                        if(toasty.toasty['sound'] !== false) {
+                            document.getElementById('toasty-sound').play();
+                        }
                         addToasty(toasty.toasty);
                     });
 
@@ -180,7 +184,7 @@ angular.module('toasty', ['ngAnimate'])
 
                         };
 
-                        // remove all 
+                        // remove all
                         $scope.removeAll = function() {
                             var i = 0;
                             for (i; i < $scope.toasties.length; i++) {
