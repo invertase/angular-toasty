@@ -13,7 +13,7 @@ This module is based on **AngularJS-Toaster** by Jirikavi.
 bower install angular-toasty
 ```
 
-#### Current Version 0.1.5
+#### Current Version 0.1.6
 ![alt tag](http://i.imgur.com/p12dgjE.png)
 
 #### Current Features
@@ -22,14 +22,13 @@ bower install angular-toasty
 * enable / disable click to close. (clickToClose)
 * success, wait, info, warning & error toast types.
 * adjust timeouts.
-* toast sounds
+* toast sounds (optional toggle)
 * toast position. (bottom-right as default)
 * toast add to top/bottom of current toasts.
 
 #### Planned Features
 * Toast shaking via css.
 * Toast sizes.
-* Toggle toast sounds.
 
 I've yet to do the documentation, so please see sample app for several usage examples.
 
