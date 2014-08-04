@@ -13,7 +13,7 @@ This module is based on **AngularJS-Toaster** by Jirikavi.
 bower install angular-toasty
 ```
 
-#### Current Version 0.1.6
+#### Current Version 0.1.7
 ![alt tag](http://i.imgur.com/p12dgjE.png)
 
 #### Current Features
