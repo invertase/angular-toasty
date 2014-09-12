@@ -256,7 +256,7 @@ angular.module('toasty', ['ngAnimate'])
             };
         }
     ])
-    .controller('toasty-controller', function($scope, toasty, $window) {
+    .controller('toasty-controller', ['$scope', 'toasty', '$window', function($scope, toasty, $window) {
 
         $scope.pop = function(options) {
             toasty.pop(options);
@@ -265,4 +265,4 @@ angular.module('toasty', ['ngAnimate'])
         $scope.clear = function() {
             toasty.clear();
         };
-    });
+    }]);
