@@ -148,6 +148,10 @@ angular.module('toasty', ['ngAnimate'])
                     scope.$on('toasty-clearToasties', function() {
                         scope.toasties.splice(0, scope.toasties.length);
                     });
+                    
+                    scope.$on('toasty-removeToasty', function(ev, id) {
+                        scope.removeToasty(id);
+                    });
                 },
                 controller: ['$scope', '$element', '$attrs',
                     function($scope, $element, $attrs) {
