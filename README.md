@@ -1,5 +1,6 @@
 Angular Toasty
 =================
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Salakar/angular-toasty?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 **Angular Toasty** is a angularjs module that provides growl-style alerts and messages for your angular app with extensive features.
 
