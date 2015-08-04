@@ -1,0 +1,58 @@
+@import 'variables';
+
+#toasty .toast.toasty-theme-material {
+
+	font-family: @material-font-family;
+	font-size: @material-font-size;
+	background-color: @material-background-color;
+
+	.close-button {
+		&:after {
+			content: @material-close-button-content;
+			color: @material-close-button-color;
+			font-size: 17px;
+			font-weight: 100;
+		}
+	}
+
+	.toast-text {
+		color: @material-text-color;
+
+		.toast-title {
+			text-transform: uppercase;
+			font-size: @material-font-size-title;
+		}
+		.toast-msg { /**/ }
+		a, label {
+			color: @material-text-color;
+
+			&:hover {
+				color: darken(@material-text-color, 5%);
+			}
+		}
+	}
+
+	&.toasty-type-default {
+		background-image: @material-default-background-image;
+	}
+
+	&.toasty-type-info {
+		background-image: @material-info-background-image;
+	}
+
+	&.toasty-type-wait {
+		background-image: @material-wait-background-image;
+	}
+
+	&.toasty-type-error {
+		background-image: @material-error-background-image;
+	}
+
+	&.toasty-type-success {
+		background-image: @material-success-background-image;
+	}
+
+	&.toasty-type-warning {
+		background-image: @material-warning-background-image;
+	}
+}

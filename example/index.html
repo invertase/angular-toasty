@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html ng-app="toasty-example">
+<head>
+    <title>Toasty Samples, Yum!</title>
+
+    <link href="../dist/angular-toasty.css" rel="stylesheet" />
+
+	<!-- Demo Styling -->
+	<link rel="stylesheet" href="skeleton.css">
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		header {
+			border-bottom: 1px solid #eee;
+			height: 6.5rem;
+		}
+		.navbar-list {
+			list-style: none;
+  			margin-bottom: 0;
+		}
+		.navbar-item {
+			margin-bottom: 0;
+			position: relative;
+		}
+		.navbar-link {
+			text-transform: uppercase;
+			font-size: 11px;
+			font-weight: 600;
+			letter-spacing: .2rem;
+			margin-right: 35px;
+			text-decoration: none;
+			line-height: 6.5rem;
+			color: #222;
+		}
+		@media (max-width: 400px) {
+			header {
+				display: none;
+			}
+		}
+	</style>
+
+</head>
+	<body>
+		<header>
+			<div class="container">
+				<ul class="navbar-list">
+					<li class="navbar-item u-pull-left"><a class="navbar-link" href="/">angular-toasty</a></li>
+					<li class="navbar-item u-pull-right"><a class="navbar-link" href="https://github.com/invertase/angular-toasty">github</a></li>
+					<li class="navbar-item u-pull-right"><a class="navbar-link" href="https://invertase.io">invertase</a></li>
+				</ul>
+			</div>
+		</header>
+
+
+		<div ng-controller="ExampleController">
+			<div class="container">
+				<br />
+  				<div class="row">
+					 <div class="four columns">
+						<form>
+							<label for="title">Title</label>
+      						<input class="u-full-width" type="text" id="title" ng-model="options.title">
+      						<label for="msg">Message</label>
+      						<input class="u-full-width" type="text" id="msg" ng-model="options.msg">
+      						<label for="theme">Theme</label>
+							<select class="u-full-width" ng-options="theme.code as theme.name for theme in themes" ng-model="options.theme"></select>
+							<label for="theme">Type</label>
+							<select class="u-full-width" ng-options="type.code as type.name for type in types" ng-model="options.type"></select>
+							<label for="timeout">Timeout</label>
+							<input type="text" class="u-full-width" id="timeout" ng-model="options.timeout" placeholder="5000" />
+						</form>
+					 </div>
+					 <div class="four columns">
+						<form>
+							<label for="showclose">Show Close Icon</label>
+      						<input type="checkbox" id="showclose" ng-model="options.showClose" ng-checked="options.showClose" />
+      						<label for="clicktoclose">Click To Close</label>
+							<input type="checkbox" id="clicktoclose" ng-model="options.clickToClose" ng-checked="options.clickToClose" />
+							<label for="sound">Sound</label>
+							<input type="checkbox" id="sound" ng-model="options.sound" ng-checked="options.sound" />
+							<label for="html">HTML Allowed</label>
+							<input type="checkbox" id="html" ng-model="options.html" ng-checked="options.html" />
+							<label for="shake">Shake</label>
+							<input type="checkbox" id="shake" ng-model="options.shake" ng-checked="options.shake" />
+						</form>
+					</div>
+					<div class="four columns">
+						<pre>
+<code>toasty<span ng-if="options.type != 'default'">.{{ options.type }}</span>({
+    title: "{{ options.title }}",
+    msg: "{{ options.msg }}",
+    showClose: {{ options.showClose }},
+    clickToClose: {{ options.clickToClose }},
+    timeout: {{ options.timeout || false }},
+    sound: {{ options.sound }},
+    html: {{ options.html }},
+    shake: {{ options.shake }},
+    theme: "{{ options.theme }}"
+});
+</code>
+						</pre>
+					</div>
+				</div>
+				
+				<button style="margin-right: 10px;" ng-click="clearToasties()">Clear All</button>
+				<button class="button-primary" style="width: 100px;" ng-click="newToast()" ng-bind="button"></button>
+				<div class="u-cf"></div>
+				<hr />
+			</div>
+		</div>
+
+		<toasty></toasty>
+
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+	    <script src="../dist/angular-toasty.js"></script>
+
+	    <!-- Demo Script -->
+	    <script src="script.js"></script>
+	</body>
+</html>

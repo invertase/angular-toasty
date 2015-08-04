@@ -1,0 +1,85 @@
+@import 'variables';
+
+#toasty .toast.toasty-theme-bootstrap {
+
+	font-family: @bootstrap-font-family;
+	font-size: @bootstrap-font-size;
+	border-radius: @bootstrap-border-raduis;
+	border: 1px solid transparent;
+
+	.close-button {
+		&:after {
+			content: @bootstrap-close-button-content;
+			color: @bootstrap-close-button-color;
+			font-size: 17px;
+			font-weight: 100;
+		}
+	}
+
+	.toast-text {
+		color: @bootstrap-text-color;
+
+		.toast-title {
+			font-size: @bootstrap-font-size-title;
+		}
+		.toast-msg { /**/ }
+		a, label {
+			color: @bootstrap-text-color;
+
+			&:hover {
+				color: darken(@bootstrap-text-color, 5%);
+			}
+		}
+	}
+
+	&.toasty-type-default {
+		background-image: @bootstrap-default-background-image;
+		background-color: @bootstrap-default-background-color;
+
+		.close-button {
+			&:after {
+				color: @bootstrap-default-close-button-color !important;
+			}
+		}
+		.toast-text {
+			color: @bootstrap-default-text-color;
+			a, label {
+				color: @bootstrap-default-text-color;
+
+				&:hover {
+					color: lighten(@bootstrap-default-text-color, 5%);
+				}
+			}
+		}
+	}
+
+	&.toasty-type-info {
+		background-image: @bootstrap-info-background-image;
+		background-color: @bootstrap-info-background-color;
+		border-color: @bootstrap-info-border-color;
+	}
+
+	&.toasty-type-wait {
+		background-image: @bootstrap-wait-background-image;
+		background-color: @bootstrap-wait-background-color;
+		border-color: @bootstrap-wait-border-color;
+	}
+
+	&.toasty-type-error {
+		background-image: @bootstrap-error-background-image;
+		background-color: @bootstrap-error-background-color;
+		border-color: @bootstrap-error-border-color;
+	}
+
+	&.toasty-type-success {
+		background-image: @bootstrap-success-background-image;
+		background-color: @bootstrap-success-background-color;
+		border-color: @bootstrap-success-border-color;
+	}
+
+	&.toasty-type-warning {
+		background-image: @bootstrap-warning-background-image;
+		background-color: @bootstrap-warning-background-color;
+		border-color: @bootstrap-warning-border-color;
+	}
+}
