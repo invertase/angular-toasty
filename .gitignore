@@ -1,7 +1,6 @@
 node_modules
-components
 bower_components
-
-# IntelliJ
 .idea/
 *.iml
+*.log
+.DS_Store

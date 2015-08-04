@@ -1,0 +1,79 @@
+@import 'variables';
+
+#toasty .toast.toasty-theme-default {
+
+	font-family: @default-font-family;
+	font-size: @default-font-size;
+	border-radius: @default-border-raduis;
+
+	.close-button {
+		&:after {
+			content: @default-close-button-content;
+			color: @default-close-button-color;
+			font-size: 17px;
+			font-weight: 100;
+		}
+	}
+
+	.toast-text {
+		color: @default-text-color;
+
+		.toast-title {
+			font-size: @default-font-size-title;
+		}
+		.toast-msg { /**/ }
+		a, label {
+			color: @default-text-color;
+
+			&:hover {
+				color: darken(@default-text-color, 5%);
+			}
+		}
+	}
+
+	&.toasty-type-default {
+		background-image: @default-default-background-image;
+		background-color: @default-default-background-color;
+
+		.close-button {
+			&:after {
+				color: @default-default-close-button-color !important;
+			}
+		}
+		.toast-text {
+			color: @default-default-text-color;
+			a, label {
+				color: @default-default-text-color;
+
+				&:hover {
+					color: lighten(@default-default-text-color, 5%);
+				}
+		}
+		}
+	}
+
+	&.toasty-type-info {
+		background-image: @default-info-background-image;
+		background-color: @default-info-background-color;
+	}
+
+	&.toasty-type-wait {
+		background-image: @default-wait-background-image;
+		background-color: @default-wait-background-color;
+	}
+
+	&.toasty-type-error {
+		background-image: @default-error-background-image;
+		background-color: @default-error-background-color;
+	}
+
+	&.toasty-type-success {
+		background-image: @default-success-background-image;
+		background-color: @default-success-background-color;
+	}
+
+	&.toasty-type-warning {
+		background-image: @default-warning-background-image;
+		background-color: @default-warning-background-color;
+	}
+}

@@ -1,0 +1,92 @@
+#toasty {
+	position: fixed;
+	z-index: 999999;
+
+	.close-button:focus {
+		outline:0;
+	}
+
+	/* Positioning */
+	&.toasty-position-top-left {
+		top: 12px;
+		left: 12px;
+	}
+	&.toasty-position-top-right {
+		top: 12px;
+		right: 12px;
+	}
+	&.toasty-position-bottom-right {
+		bottom: 12px;
+		right: 12px;
+	}
+	&.toasty-position-bottom-left {
+		bottom: 12px;
+		left: 12px;
+	}
+
+	.toast {
+		cursor: pointer;
+		margin: 0 0 6px;
+		padding: 0;
+		width: 285px;
+		height: 65px;
+		display: table;
+		background-size: 24px 24px;
+		background-position: 15px center;
+		background-repeat: no-repeat;
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+		opacity: 0.9;
+		position: relative;
+
+		&.toasty-shake {
+			animation-name: toasty-shake;
+			animation-duration: @toasty-shake-speed;
+			transform-origin: 50% 50%;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+
+			&:hover {
+				animation-play-state: paused;
+			}
+		}
+
+		.close-button {
+			padding: 0;
+			cursor: pointer;
+			background: transparent;
+			border: 0;
+			-webkit-appearance: none;
+			position: absolute;
+			right: 10px;
+			top: 3px;
+			opacity: 0.5;
+			filter: alpha(opacity=50);
+
+			&:hover, &:focus {
+				text-decoration: none;
+				cursor: pointer;
+				opacity: 1;
+				filter: alpha(opacity=100);
+			}
+		}
+
+		.toast-text {
+			padding: 5px 20px 5px 60px;
+			display: table-cell; 
+			vertical-align: middle;
+
+			.toast-title {
+				font-weight: bold;
+			}
+			.toast-msg {
+
+			}
+			a, label {
+				&:hover {
+					text-decoration: none;
+				}
+			}
+		}
+
+	}
+}

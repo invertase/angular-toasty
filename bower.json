@@ -1,17 +1,26 @@
 {
     "name": "angular-toasty",
-    "version": "0.1.8",
+    "description": "A slick, simple, standalone AngularJS module with extensive features that provides growl-style alerts and messages for your app.",
+    "version": "1.0.0",
     "main": [
-        "js/ng-toasty.js",
-        "css/ng-toasty.css"
+        "dist/angular-toasty.js",
+        "dist/angular-toasty.css"
     ],
     "ignore": [
-        "**/.*",
-        "node_modules",
-        "components"
+    	"node_modules",
+    	"bower_components",
+    	"example",
+    	".gitignore",
+    	"**/*.log",
+    	".DS_Store"
     ],
     "dependencies": {
-        "angular": "~1.2.20",
-        "angular-animate": "~1.2.20"
-    }
+        "angular": "~1.4.3"
+    },
+    "homepage": "https://github.com/invertase/angular-toasty",
+    "repository": {
+  		"type": "git",
+  		"url": "git://github.com/invertase/angular-toasty.git"
+	},
+	"license": "MIT"
 }

@@ -1,131 +1,171 @@
 Angular Toasty
 =================
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Salakar/angular-toasty?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+**Angular Toasty** is a simple standalone AngularJS module with extensive features that provides growl-style alerts and messages for your app.
 
-**Angular Toasty** is a angularjs module that provides growl-style alerts and messages for your angular app with extensive features.
+#### Demo
 
-Latest release requires AngularJS v1.2.20 or higher and angular-animate for the CSS3 transformations. 
+[Check it out!](http://invertase.github.io/angular-toasty/example/)
 
-Demo: http://salakar.github.io/angular-toasty/toasty-sample/
+#### Current Features
+* 3 Themes (Default, Material Design & Bootstrap 3)
+* Global/Individual timeouts
+* Shaking Toasts
+* Toaster sound
+* onAdd, onRemove & onClick event handlers
+* Event broadcasting
+* Positioning
+* HTML allowed
 
-This module is based on **AngularJS-Toaster** by Jirikavi.
+#### Installation
+###### Install from Bower:
 
 ```HTML
 bower install angular-toasty
 ```
+###### Add dependancies to HTML (AngularJS required)
 
-#### Current Version 0.1.8
-![alt tag](http://i.imgur.com/p12dgjE.png)
-
-#### Current Features
-* onClick, onAdd, onRemove event handlers.
-* show / hide close button. (showClose)
-* enable / disable click to close. (clickToClose)
-* success, wait, info, warning & error toast types.
-* adjust timeouts.
-* toast sounds (optional toggle)
-* toast position. (bottom-right as default)
-* toast add to top/bottom of current toasts.
-
-#### Planned Features
-* Toast shaking via css.
-* Toast sizes.
-
-I've yet to do the documentation, so please see sample app for several usage examples.
-
-#### Example controller using Toasty:
-JS:
-```javascript
-angular.module('main', ['ngAnimate', 'toasty'])
-    .controller('myController', function($scope, toasty, $timeout, $window) {
-
-        $scope.pop = function() {
-            toasty.pop.success({
-                title: "Success!",
-                msg: 'Click to change me.',
-                timeout: 0,
-                showClose: false,
-                myData: 'Testing 1 2 3', // Strings, integers, objects etc.
-                onClick: function(toasty) {
-                    toasty.title = 'Well done!';
-                    toasty.msg = 'Closing in 5 seconds.';
-                    toasty.timeout = 5000;
-                    //console.log(toasty.myData);
-                    //toasty.remove();
-                    //toasty.removeAll();
-                },
-                onAdd: function(toasty) {
-                    console.log(toasty.id + ' has been added!');
-                },
-                onRemove: function(toasty) {
-                    console.log(toasty.id + ' has been removed!');
-                }
-            });
-
-            toasty.pop.warning({
-                title: 'Warning!',
-                msg: 'Click to close me.',
-                showClose: false,
-                clickToClose: true,
-                timeout: 0,
-            });
-
-            toasty.pop.wait({
-                title: 'Please Wait',
-                msg: 'I\'ll change after 5 seconds.',
-                timeout: 0,
-                clickToClose: false,
-                showClose: false,
-                onAdd: function(toasty) {
-
-                    var doSuccess = function() {
-                        toasty.title = 'Success';
-                        toasty.msg = 'Loading finished!';
-                        toasty.setType('success');
-                        toasty.showClose = true;
-                    }
-
-                    $timeout(doSuccess, 5000);
-                },
-            });
-
-            toasty.pop.error({
-                title: 'Error!',
-                msg: 'Click the remove icon to get rid of me.',
-                timeout: 0,
-                showClose: true,
-                clickToClose: false,
-            });
-
-            toasty.pop.info({
-                title: 'Info',
-                msg: 'I\'ll just stay here forever.',
-                timeout: 0,
-                showClose: false,
-                clickToClose: false,
-            });
-
-        };
-
-        // Remove all toasties
-        $scope.clear = function() {
-            toasty.clear()
-        };
-
-    });
-```
-HTML:
 ```HTML
-<div ng-controller="myController">
-    <div>  
-        <button class="btn btn-primary" style="margin: 150px 0 0 150px;" ng-click="pop()">Show toasts</button>
-        <br /> 
-        <button class="btn btn-danger" style="margin: 10px 0 0 150px;" ng-click="clear()">Clear toasts</button>                 
-    </div>
-</div>
+<link href="./bower_components/angular-toasty/css/angular-toasty.min.css" rel="stylesheet" />
 
-<!-- Toasty controller, add this to your index page / default template --> 
-<div ng-controller="toasty-controller">
-	<toasty-container toasty-defaults='{"timeout": 3000, "close-button":true}'></toasty-container>        
-</div>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script src="./bower_components/angular-toasty/js/angular-toasty.min.js"></script>
 ```
+
+###### Add the toasty module to your Angular app:
+
+```javascript
+angular.module('app', ['angular-toasty']);
+```
+
+###### Add the toasty directive:
+
+```HTML
+		<toasty></toasty>
+	</body>
+</html>
+```
+
+###### Inject and use the toasty service in your controllers:
+
+```javascript
+angular.module('app').controller('UserCtrl', ['$scope', 'toasty', function($scope, toasty) {
+	$scope.addUser = function(user) {
+		// ...
+		// Add user
+		// ...
+		toasty.success({
+			title: 'User added!',
+			msg: user.firstName + ' has been added!'
+		});
+}]);
+```
+
+> Each toast must have at least a title or message.
+
+#### Configuration
+
+The default toasty config:
+
+```
+* limit: 5, // {int} Maximum number of toasties to show at once
+showClose: true, // {bool} Whether to show the 'X' icon to close the toasty
+clickToClose: false, // {bool} Whether clicking the toasty closes it
+* position: 'bottom-right', // {string:bottom-right,bottom-left,top-right,top-left} The window position where the toast pops up
+timeout: 5000, // {int} How long (in miliseconds) the toasty shows before it's removed. Set to false to disable.
+sound: true, // {bool} Whether to play a sound when a toast is added
+html: false, // {bool} Whether HTML is allowed in toasts
+shake: false, // {bool} Whether to shake the toasts
+theme: 'default' // {string} What theme to use; default, material or bootstrap
+```
+> Config items marked with * cannot be overridden at an individual level
+
+##### Global Overrides
+
+To globally override the above config, simply inject the toastyProvider into your app at config:
+
+```javascript
+angular.module('app').config(['toastyConfigProvider', function(toastyConfigProvider) {
+	toastyConfigProvider.setConfig({
+		sound: false,
+		shake: true
+	});
+}]);
+```
+
+> You can also get the global config at any time by calling `toasty.getGlobalConfig()`!
+
+##### Individual Overrides
+
+To override the global config for individual toasts, simply pass them into the creation object:
+
+```javascript
+toasty({
+	title: 'Ping!',
+	msg: '<a href="http://google.com">Take me to Google!</a>',
+	showClose: false,
+	clickToClose: true,
+	timeout: 10000,
+	sound: false,
+	html: true,
+	shake: true,
+	theme: 'bootstrap'
+});
+```
+
+#### Features
+
+##### Clearing/Removing
+
+You can easily clear/remove a toast from the view by calling the `clear` method. To remove all at once, just call the method with no ID.
+
+```
+toasty.clear(); // Clear all 
+toasty.clear(id); // Remove a single toast by it's ID
+```
+
+##### Toast Types
+
+There's multiple types of toast to use:
+
+```javascript
+toasty(); // Default
+toasty.info();
+toasty.success();
+toasty.wait();
+toasty.error();
+toasty.warning();
+```
+
+##### Event Handlers & Broadcasting
+
+You can easily hook into individual toast item events by calling a functions:
+
+```javascript
+toasty({
+	title: 'New Toast!',
+	onAdd: function() {
+		console.log('Toasty ' + this.id + ' has been added!', this);
+	},
+	onRemove: function() {
+		console.log('Toasty ' + this.id + ' has been removed!', this);
+	},
+	onClick: function() {
+		console.log('Toasty ' + this.id + ' has been clicked!', this);
+	}
+});
+```
+
+Toasty also broadcasts on events which can be hooked into:
+
+```javascript
+// When a new toast is added
+$rootScope.$on('toasty-added', function(event, toast) { console.log(toast) });
+// When a toast is clicked
+$rootScope.$on('toasty-clicked', function(event, toast) { console.log(toast) });
+// When a toast is cleared/removed
+$rootScope.$on('toasty-cleared', function(event, toast) { console.log(toast) });
+```
+
+#### Contributing
+
+Please see the [contributing guidelines](https://github.com/invertase/angular-toasty/blob/master/CONTRIBUTING.md).
