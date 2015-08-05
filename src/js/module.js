@@ -1,8 +1,8 @@
-'use strict';
-
 /*!
  * angular-toasty
- * /
+ */
+
+'use strict';
 
 /**
  *

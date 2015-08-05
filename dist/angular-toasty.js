@@ -1,8 +1,8 @@
-'use strict';
-
 /*!
  * angular-toasty
- * /
+ */
+
+'use strict';
 
 /**
  *
@@ -196,7 +196,7 @@ angular.module('angular-toasty').directive('toasty', ['toasty', '$timeout', '$sc
 				  + '</div>'
 		}
 }]);
-angular.module('angular-toasty').provider('toastyConfig', [function() {
+angular.module('angular-toasty').provider('toastyConfig', function() {
 
 	/**
 	 * Default global config
@@ -230,7 +230,7 @@ angular.module('angular-toasty').provider('toastyConfig', [function() {
 			}
 		}
 	}
-}]);
+});
 angular.module('angular-toasty').factory('toasty', ['$rootScope', 'toastyConfig', function($rootScope, toastyConfig) {
 
 	// Get the global config
