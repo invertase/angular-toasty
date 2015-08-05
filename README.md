@@ -25,10 +25,10 @@ bower install angular-toasty
 ###### Add dependancies to HTML (AngularJS required)
 
 ```HTML
-<link href="./bower_components/angular-toasty/css/angular-toasty.min.css" rel="stylesheet" />
+<link href="./bower_components/angular-toasty/dist/angular-toasty.min.css" rel="stylesheet" />
 
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-<script src="./bower_components/angular-toasty/js/angular-toasty.min.js"></script>
+<script src="./bower_components/angular-toasty/dist/angular-toasty.min.js"></script>
 ```
 
 ###### Add the toasty module to your Angular app:
