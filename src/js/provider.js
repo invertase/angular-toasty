@@ -1,4 +1,4 @@
-angular.module('angular-toasty').provider('toastyConfig', [function() {
+angular.module('angular-toasty').provider('toastyConfig', function() {
 
 	/**
 	 * Default global config
@@ -32,4 +32,4 @@ angular.module('angular-toasty').provider('toastyConfig', [function() {
 			}
 		}
 	}
-}]);
+});

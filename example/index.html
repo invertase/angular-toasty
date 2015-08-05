@@ -3,7 +3,7 @@
 <head>
     <title>Toasty Samples, Yum!</title>
 
-    <link href="../dist/angular-toasty.css" rel="stylesheet" />
+    <link href="../dist/angular-toasty.min.css" rel="stylesheet" />
 
 	<!-- Demo Styling -->
 	<link rel="stylesheet" href="skeleton.css">
@@ -34,6 +34,10 @@
 			line-height: 6.5rem;
 			color: #222;
 		}
+		small {
+			font-size: 6px;
+    		opacity: .2;
+		}
 		@media (max-width: 400px) {
 			header {
 				display: none;
@@ -46,7 +50,7 @@
 		<header>
 			<div class="container">
 				<ul class="navbar-list">
-					<li class="navbar-item u-pull-left"><a class="navbar-link" href="/">angular-toasty</a></li>
+					<li class="navbar-item u-pull-left"><a class="navbar-link" href="http://invertase.github.io/angular-toasty/example/">angular-toasty</a></li>
 					<li class="navbar-item u-pull-right"><a class="navbar-link" href="https://github.com/invertase/angular-toasty">github</a></li>
 					<li class="navbar-item u-pull-right"><a class="navbar-link" href="https://invertase.io">invertase</a></li>
 				</ul>
@@ -82,7 +86,7 @@
 							<input type="checkbox" id="sound" ng-model="options.sound" ng-checked="options.sound" />
 							<label for="html">HTML Allowed</label>
 							<input type="checkbox" id="html" ng-model="options.html" ng-checked="options.html" />
-							<label for="shake">Shake</label>
+							<label for="shake">Shake <small>it like a polaroid picture</small></label>
 							<input type="checkbox" id="shake" ng-model="options.shake" ng-checked="options.shake" />
 						</form>
 					</div>
