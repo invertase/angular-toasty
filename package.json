@@ -1,6 +1,6 @@
 {
   "name": "angular-toasty",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Invertase",
   "devDependencies": {
     "bower": "~1.4.1",
