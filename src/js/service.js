@@ -9,6 +9,13 @@ angular.module('angular-toasty').factory('toasty', ['$rootScope', 'toastyConfig'
 	 * @param  {string} type    Type of toasty; success, info, error etc.
 	 */
 	var toasty = function(options, type) {
+
+		if (angular.isString(options) && options != '' || angular.isNumber(options)) {
+			options = {
+				title: options.toString()
+			};
+		}
+
 		if (!options || !options.title && !options.msg) {
 			console.error('angular-toasty: No toast title or message specified!');
 		} else {
