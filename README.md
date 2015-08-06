@@ -136,6 +136,13 @@ toasty.error();
 toasty.warning();
 ```
 
+To create a "quick toast", just pass a string or integer to the function instead:
+
+```javascript
+toasty('Quick Toast!');
+toasty.success('Quick Success Toast!');
+```
+
 ##### Event Handlers & Broadcasting
 
 You can easily hook into individual toast item events by calling a functions:

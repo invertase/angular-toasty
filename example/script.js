@@ -57,8 +57,6 @@ angular.module('toasty-example').controller('ExampleController', ['$scope', 'toa
 
 		$scope.button = $scope.button == 'ping' ? 'pong' : 'ping';
 
-		console.log(toasty.getGlobalConfig())
-
 		toasty[$scope.options.type]({
 			title: $scope.options.title,
 			msg: $scope.options.msg,
