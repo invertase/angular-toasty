@@ -2,11 +2,9 @@ var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer');
 var concat = require('gulp-concat');
 var del = require('del');
-var gulpIf = require('gulp-if');
 var less = require('gulp-less');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
-var rimraf = require('gulp-rimraf');
 var sequence = require('run-sequence');
 var minifyJs = require('gulp-uglify');
 var watch = require('gulp-watch');
@@ -22,7 +20,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('scripts:prod', function() {
-	return gulp.src('./dist/**/*.js')
+	return gulp.src(['./dist/**/*.js', '!./dist/**/*.min.js'])
 		.pipe(minifyJs({preserveComments: 'some'}))
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('./dist'));
@@ -37,7 +35,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('styles:prod', function() {
-	return gulp.src('./dist/**/*.css')
+	return gulp.src(['./dist/**/*.css', '!./dist/**/*.min.css'])
 		.pipe(minifyCss())
 		.pipe(rename({suffix: '.min'}))
 		.pipe(gulp.dest('./dist'));
