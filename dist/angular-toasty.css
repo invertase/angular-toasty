@@ -1,7 +1,7 @@
 /*!
  * angular-toasty
  */
-@import url("http://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 #toasty .toast.toasty-theme-default {
   font-family: Tahoma, Geneva, sans-serif !important;
   font-size: 12px;

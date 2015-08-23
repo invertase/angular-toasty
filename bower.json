@@ -1,7 +1,7 @@
 {
     "name": "angular-toasty",
     "description": "A slick, simple, standalone AngularJS module with extensive features that provides growl-style alerts and messages for your app.",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "main": [
         "dist/angular-toasty.js",
         "dist/angular-toasty.css"
