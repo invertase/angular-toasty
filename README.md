@@ -4,7 +4,7 @@ Angular Toasty
 
 #### Demo
 
-[Check it out!](http://invertase.github.io/angular-toasty/example/)
+[Check it out!](https://invertase.github.io/angular-toasty/example/)
 
 #### Current Features
 * 3 Themes (Default, Material Design & Bootstrap 3)
