@@ -18,10 +18,10 @@
     "dependencies": {
         "angular": "~1.4.3"
     },
-    "homepage": "https://github.com/invertase/angular-toasty",
+    "homepage": "https://github.com/teamfa/angular-toasty",
     "repository": {
   		"type": "git",
-  		"url": "git://github.com/invertase/angular-toasty.git"
+  		"url": "git://github.com/teamfa/angular-toasty.git"
 	},
 	"license": "MIT"
 }
