@@ -18,10 +18,10 @@
     "dependencies": {
         "angular": "~1.4.3"
     },
-    "homepage": "https://github.com/teamfa/angular-toasty",
+    "homepage": "git@github.com:GSA/angular-toasty.git",
     "repository": {
   		"type": "git",
-  		"url": "git://github.com/teamfa/angular-toasty.git"
+  		"url": "git@github.com:GSA/angular-toasty.git"
 	},
 	"license": "MIT"
 }
