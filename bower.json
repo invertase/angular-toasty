@@ -18,7 +18,7 @@
     "dependencies": {
         "angular": "~1.4.3"
     },
-    "homepage": "git@github.com:GSA/angular-toasty.git",
+    "homepage": "https://github.com/GSA/angular-toasty",
     "repository": {
   		"type": "git",
   		"url": "git@github.com:GSA/angular-toasty.git"
