@@ -2,10 +2,6 @@ Angular Toasty
 =================
 **Angular Toasty** is a simple standalone AngularJS module with extensive features that provides growl-style alerts and messages for your app.
 
-#### Demo
-
-[Check it out!](http://teamfa.com/angular-toasty/example/)
-
 #### Current Features
 * 3 Themes (Default, Material Design & Bootstrap 3)
 * Global/Individual timeouts
