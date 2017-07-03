@@ -18,6 +18,13 @@ Angular Toasty
 ```HTML
 bower install angular-toasty
 ```
+
+###### Install from NPM:
+
+```HTML
+npm install angular-toasty
+```
+
 ###### Add dependancies to HTML (AngularJS required)
 
 ```HTML
