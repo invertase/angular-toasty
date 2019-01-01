@@ -4,7 +4,7 @@ Angular Toasty
 
 #### Demo
 
-[Check it out!](https://invertase.github.io/angular-toasty/example/)
+[Check it out!](http://teamfa.com/angular-toasty/example/)
 
 #### Current Features
 * 3 Themes (Default, Material Design & Bootstrap 3)
@@ -175,4 +175,4 @@ $rootScope.$on('toasty-cleared', function(event, toast) { console.log(toast) });
 
 #### Contributing
 
-Please see the [contributing guidelines](https://github.com/invertase/angular-toasty/blob/master/CONTRIBUTING.md).
+Please see the [contributing guidelines](https://github.com/teamfa/angular-toasty/blob/master/CONTRIBUTING.md).

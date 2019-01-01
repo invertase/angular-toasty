@@ -1,4 +1,4 @@
-angular.module('angular-toasty').directive('toasty', ['toasty', '$timeout', '$sce', function(toasty, $timeout, $sce) {
+angular.module('angular-toasty').directive('toasty', ['toasty', '$interval', '$sce', function(toasty, $interval, $sce) {
 	return {
 		replace: true,
 		restrict: 'EA',
@@ -72,7 +72,7 @@ angular.module('angular-toasty').directive('toasty', ['toasty', '$timeout', '$sc
 			// Custom setTimeout function for specific
 			// setTimeouts on individual toasts
 			function setTimeout(toasty, time) {
-				toasty.timeout = $timeout(function() {
+				toasty.timeout = $interval(function() {
 					clear(toasty.id);
 				}, time);
 			}
