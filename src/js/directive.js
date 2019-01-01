@@ -129,8 +129,10 @@ angular.module('angular-toasty').directive('toasty', ['toasty', '$timeout', '$sc
 					onClick: options.onClick && angular.isFunction(options.onClick) ? options.onClick : null
 				};
 
-				// Push up a new toast item
-				scope.toasty.push(toast);
+				$timeout(function () {
+					// Push up a new toast item
+					scope.toasty.push(toast);
+				});
 
 				// If we have a onAdd function, call it here
 				if (options.onAdd && angular.isFunction(options.onAdd))
