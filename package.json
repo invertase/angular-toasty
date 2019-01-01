@@ -1,7 +1,7 @@
 {
-  "name": "angular-toasty",
-  "version": "1.0.5",
-  "author": "Invertase",
+  "name": "angular-toasty-npm",
+  "version": "1.0.7",
+  "author": "Warren Dodsworth",
   "devDependencies": {
     "bower": "~1.4.1",
     "del": "^1.2.0",
